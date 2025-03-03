@@ -1,0 +1,22 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}Movie List{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Available Movies</h2>
+<div class="row">
+    {% for movie in movies %}
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">{{ movie.description }}</p>
+                <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                <p><strong>Duration:</strong> {{ movie.duration }} min</p>
+                <a href="/proxy/3000{% url 'seat_booking' movie.id %}" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

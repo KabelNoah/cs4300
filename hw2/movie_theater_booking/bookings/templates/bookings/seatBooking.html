@@ -1,0 +1,28 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}Book Seats{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Book a Seat for {{ movie.title }}</h2>
+
+    {% if error %}
+    <p class="alert alert-danger">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="seat" class="form-label">Select a Seat:</label>
+            <select name="seat" class="form-control">
+                {% for seat in seats %}
+                <option value="{{ seat.id }}" {% if seat.is_booked %}disabled{% endif %}>
+                    {{ seat.seat_number }} {% if seat.is_booked %}(Booked){% endif %}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Confirm Booking</button>
+    </form>
+</div>
+{% endblock %}
