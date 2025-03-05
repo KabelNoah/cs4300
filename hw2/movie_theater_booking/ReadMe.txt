@@ -25,3 +25,7 @@ Admin Panel: http://localhost/proxy/3000/admin/
 Movies: GET /api/movies/
 Seats: GET /api/seats/
 Bookings: POST /api/bookings/
+
+This project was developed with assistance from **ChatGPT (GPT-4)** for:
+- Debugging Django errors
+- Implementing functionality (API endpoints, unique seats per movie, fixing redirects, Database implementation, HTML for all pages, creating unit tests)
